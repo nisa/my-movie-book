@@ -1,0 +1,90 @@
+/*
+
+Style sheet for my movie book 
+authour: nisa balakrishnan 
+
+*/
+
+body{
+	background: none repeat scroll 0 0 #F2F2F2;
+    font-family: verdana,Helvetica,arial;
+    font-size: 75%;
+    margin: 0;
+    padding: 0;
+}
+ul{
+	list-style: none outside none;
+	margin: 0;
+	padding: 0;
+}
+ul.account_nav li,ul.main_navigation li{
+	display: inline;
+}
+ul.account_nav li{
+	float: right;
+	margin-left: 10px;
+	margin-bottom: 10px;
+}
+ul.account_nav li a,ul.add_button li a, input[type="submit"]{
+	background-color: #ECECEC;
+    border: 1px solid #D5D5D5;
+    color: #000000;
+    display: inline-block;
+    padding: 0.2em 0.5em 0.4em 0.4em;
+    text-decoration: none;
+    font-weight: bold;
+}
+#main_container{
+	clear: both;
+	background-color: #FFFFFF;
+    margin: 0 auto;
+    position: relative;
+    width: 960px;
+    padding: 10px;
+}
+h1.main_title,h5.we_note{
+	text-align: center;
+}
+ul.main_navigation{
+	margin: 1em 0;
+	background: none repeat scroll 0 0 #000000;
+	overflow: hidden;
+	color: #FFF;
+	clear: both;
+}	
+ul.main_navigation li a{
+	display: inline-block;
+    color: #FFFFFF;
+    float: left;
+    font: 17px tahoma;
+    margin-right: 2.5px;
+    padding: 12px 1px;
+    text-align: center;
+    text-decoration: none;
+    white-space: nowrap;
+    width: 80px;	
+}
+ul.main_navigation li a:hover,ul.account_nav li a:hover{
+	color: #747474;
+}
+div.main_content{
+	margin: 1em;
+}
+.footer{
+    background: none repeat scroll 0 0 #000000;
+    clear: both;
+    color: #FFF;
+    text-align: right;
+    padding: 5px;
+}
+ul.movie_list li{
+	border-bottom: 1px solid #747474;
+	padding-bottom: 10px;
+}
+.pagination{
+	margin-top: 5px;
+}
+.messages{
+	margin-bottom: 5px;
+	color: #747474;
+}	

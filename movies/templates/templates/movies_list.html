@@ -1,0 +1,49 @@
+{% extends "base.html" %}
+
+{% block content %}
+   {% if messages %}
+		<ul class="messages">
+    {% for message in messages %}
+            <li>{{ message }}</li>
+    {% endfor %}
+       </ul>
+    {% endif %}
+   		
+   <ul class="add_button">
+   		<li><a href="{% url mysite.movies.views.add_movie %}"> add movie +</a></li>
+   </ul>
+   <h2> Movies I watched...</h2>
+   {% if movies_list.object_list %}
+   <ul class="movie_list"> 
+       {% for movie in movies_list.object_list %}
+          <li>
+          	<h4> {{ movie.title }} </h4>
+          	<p>	Director: {{ movie.director }} </p>
+          	<p>	Was released on : {{ movie.date_of_release }} </p>
+          	<p>	Watched on : {{ movie.date_of_watching }} </p>
+          	<a href="{% url mysite.movies.views.delete_movie movie.pk %}"> delete</a>
+          </li>
+       {% endfor %}   
+   </ul>
+   {% else %}
+   <h6> no movies added yet.</h6>        
+   {% endif %}
+   
+   {% if movies_list.object_list and movies_list.paginator.num_pages > 1 %}
+   	<div class="pagination">
+            <span class="step-links">
+                {% if movies_list.has_previous %}
+                    <a href= "?page={{ movies_list.previous_page_number }}">newer entries &lt;&lt; </a>
+                {% endif %}
+
+                <span class="current">
+                    &nbsp;Page {{ movies_list.number }} of {{ movies_list.paginator.num_pages }}
+                </span>
+
+                {% if movies_list.has_next %}
+                    <a href="?page={{ movies_list.next_page_number }}"> &gt;&gt; older entries</a>
+                {% endif %}
+            </span>
+    </div>
+   {% endif %}
+{% endblock %}

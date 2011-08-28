@@ -1,0 +1,38 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN">
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="{{STATIC_URL}}css/base.css" type="text/css" media="screen" />
+	<title> {% block title %} {% endblock %} </title>
+</head>
+<body>
+	<div id="main_container">
+	    <h1 class="main_title"> My Movie Book </h1>
+	    <ul class="account_nav">  
+	    {% if user.is_authenticated %}
+	        <h5 class="we_note"> Welcome {{ user.username }} </h5>
+	    	<li><a href="{% url logout %}"> log out </a></li>
+	    {% else %}
+	        <li><a href="{% url login %}">log in </a></li>
+	        <li><a href="{% url mysite.movies.views.register %}"> sign up </a></li>  
+	    {% endif %}    	
+	    </ul>
+
+	    <ul class="main_navigation">
+	        	<li><a href="{% url mysite.movies.views.home_page %}"> home </a></li>
+	        	{% if user.is_authenticated %}
+	        	<li><a href="{% url mysite.movies.views.movies_list %}"> profile </a></li>
+	        	{% endif %}   
+	    </ul>
+	    	    
+		<div class="main_content">
+		
+		{% block content %} {% endblock %}
+		
+		</div>
+		
+		<div class="footer">
+			<p>Copyright 2011 All rights reserved.</p>
+		</div>
+	</div>
+</body>
+</html>
